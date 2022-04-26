@@ -51,6 +51,26 @@ function startGame(){
     id("lives").textContent = "Lives Remaining: 3";
     // Created board baised on difficulty:
     generateBoard(board);
+    // Starts timmer
+    // startTimer();
+    // if(id("theme-1").checked){
+    //     qs("body"). class
+    // }
+
+
+
+    // switch(id("theme")){
+    //     case id("theme-1").checked:
+    //         qs("body").classList.add("dark")
+    //         break;
+    //     case id("theme-2").checked:
+    //         break;
+    //     case id("theme-3").checked:
+    //         break;
+    //     case id("theme-4").checked:
+    //         break;
+    //     default:
+    // }
 }
 
 function generateBoard(board){
