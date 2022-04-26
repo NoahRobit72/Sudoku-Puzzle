@@ -12,7 +12,7 @@
  * 
  *
  */ 
- 
+
 .hidden {
     display: none;
 }
@@ -20,6 +20,14 @@
 body.dark{
     background-color: black;
     color: white;
+}
+
+body.blue{
+    background-color: cornflowerblue;
+}
+
+body.red{
+    background-color: lightcoral;
 }
 
 header {
