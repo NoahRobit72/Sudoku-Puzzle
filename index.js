@@ -1,3 +1,18 @@
+/*
+ *
+ * Copyrighted (c) <2021> <Noah Robitshek> <noahro@bu.edu>  All Rights Reserved.
+ * 
+ * Filename: index.js
+ *
+ * Description: Backend logic and logic for board game. 
+ * 
+ * Project: <EC 327 Project> 
+ *
+ * Creator: <Noah Robitshek>   <NR>
+ * 
+ *
+ */ 
+
 const easy = [
     "6------7------5-2------1---362----81--96-----71--9-4-5-2---651---78----345-------",
     "685329174971485326234761859362574981549618732718293465823946517197852643456137298"
