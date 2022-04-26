@@ -51,6 +51,12 @@ function startGame(){
     id("lives").textContent = "Lives Remaining: 3";
     // Created board baised on difficulty:
     generateBoard(board);
+    // add tile to bord
+    if (id("theme-1").checked) {
+        qs("body").classList.remove("dark");
+    } else{
+        qs("body").classList.add("dark");
+    }
 
 }
 
@@ -86,7 +92,6 @@ function generateBoard(board){
         // add tile to bord
         id("board").appendChild(tile);
     }
-
 }
 
 function clearPrevious(){
