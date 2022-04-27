@@ -38,7 +38,31 @@ window.onload = function() {
     // run startgame function when button is clicked
 
     id("start-btn").addEventListener("click", startGame);
+
+    for(let i = 0; i < id("number-container").children.length; i++){
+        id("number-container").children[i].addEventListener("click",function(){
+            // if selecting is not disabled
+            if(!disableSelect){
+                // If number is already selectedd
+                if(this.classList.contains("selected")){
+                    //Then remove selection
+                    this.classlist.remove("selected");
+                    selectedNum = null;
+                } else{
+                    // deslect all other numbers
+                    for(let i = 0; i < 9; i++){
+                        id("number-container").children[i].classList.remove("selected"); 
+                    }
+                    this.classList.add("selected");
+                    selectedNum = this;
+                    updateMove();
+                }
+            }
+        })
+    }
 }
+
+
 function startGame(){
     // choose board difficuliy
     let board;
@@ -51,13 +75,43 @@ function startGame(){
     id("lives").textContent = "Lives Remaining: 3";
     // Created board baised on difficulty:
     generateBoard(board);
+    // Start timmer
+    startTimer();
     // add tile to bord
     if (id("theme-1").checked) {
         qs("body").classList.remove("dark");
     } else{
         qs("body").classList.add("dark");
     }
+    // add other colors
 
+    // show number container
+    id("number-container").classList.remove("hidden");
+}
+
+function startTimer() {
+    //sets timmer baised on input
+    if(id("time-1").checked) timeRemaining = 180;
+    else if (id("time-2").checked) timeRemaining = 300;
+    else timeRemaining = 600;
+    // sets timer for the first second
+    id("timer").textContent = timeConversion(timeRemaining);
+    // sets timer to update every second
+    timer = setInterval(function () {
+        timeRemaining --;
+        // endgame if time is 0
+        if (timeRemaining == 0) endGame();
+        id("timer").textContent = timeConversion(timeRemaining);
+    }, 1000)
+
+}
+// convert seconds into string of mm ss format
+function timeConversion(time) {
+    let minutes = Math.floor(time/60);
+    if(minutes < 10) minutes = "0" + minutes;
+    let seconds = time % 60;
+    if (seconds < 10) seconds = "0" + seconds;
+    return minutes + ":" + seconds;
 }
 
 function generateBoard(board){
